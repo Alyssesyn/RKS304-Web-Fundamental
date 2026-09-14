@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelajarTailwind.com</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col h-screen">
+
+    <!-- HEADER UTAMA -->
+    <header class="bg-purple-950 border-b border-purple-900/50 text-white shadow-lg py-4 px-6 flex justify-between items-center z-10">
+        <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-store text-2xl text-purple-400"></i>
+            <h1 class="text-xl font-bold tracking-wide text-purple-100">BelajarTailwind.com</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="relative p-2 hover:bg-purple-900/60 rounded-full transition">
+                <i class="fa-regular fa-bell text-lg text-purple-300"></i>
+                <span class="absolute top-1 right-1 w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
+            </button>
+            <div class="flex items-center space-x-2 border-l border-purple-800/60 pl-4">
+                <img src="https://via.placeholder.com/35" alt="Avatar" class="w-8 h-8 rounded-full border border-purple-400">
+                <span class="text-sm font-medium text-purple-200">Admin Toko</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER UTAMA (SIDEBAR + CONTENT) -->
+    <div class="flex flex-1 overflow-hidden">
+
+        <!-- SIDEBAR (KIRI) -->
+        <aside class="w-64 bg-slate-900 border-r border-purple-900/30 shadow-xl flex flex-col justify-between">
+            <nav class="mt-6 px-4 space-y-2">
+                
+                <!-- Menu Dashboard (Active) -->
+                <a href="#" class="flex items-center space-x-3 bg-purple-900/50 text-purple-300 border border-purple-700/50 font-semibold px-4 py-3 rounded-lg transition shadow-sm">
+                    <i class="fa-solid fa-chart-line w-5 text-purple-400"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Menu Analytical -->
+                <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition">
+                    <i class="fa-solid fa-chart-pie w-5"></i>
+                    <span>Analytical</span>
+                </a>
+
+                <!-- Menu Pengguna -->
+                <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition">
+                    <i class="fa-solid fa-users w-5"></i>
+                    <span>Pengguna</span>
+                </a>
+
+                <!-- Menu Laporan -->
+                <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition">
+                    <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                    <span>Laporan</span>
+                </a>
+
+                <!-- Menu Pengaturan -->
+                <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition">
+                    <i class="fa-solid fa-gear w-5"></i>
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+            <!-- Footer Sidebar / Keluar -->
+            <div class="p-4 border-t border-purple-900/30">
+                <a href="#" class="flex items-center space-x-3 text-rose-400 hover:bg-rose-950/40 px-4 py-3 rounded-lg transition">
+                    <i class="fa-solid fa-right-from-bracket w-5"></i>
+                    <span class="font-medium">Keluar</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- AREA KONTEN UTAMA (KANAN) -->
+        <main class="flex-1 overflow-y-auto p-8 bg-slate-950">
+
+            <!-- Title & Ringkasan Opsi -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-purple-100">Dashboard Utama</h2>
+                <p class="text-slate-400 text-sm mt-1">
+                    Halaman ini menampilkan ringkasan performa toko, statistik penjualan harian, pesanan terbaru, serta indikator utama bisnis e-commerce kamu.
+                </p>
+            </div>
+
+            <!-- Kartu Statistik Ringkasan -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                
+                <div class="bg-slate-900 p-6 rounded-xl shadow-lg border border-purple-900/40 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Total Penjualan</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mt-1">Rp 45.250.000</h3>
+                        <span class="text-xs text-emerald-400 font-semibold">+12.5% dari bulan lalu</span>
+                    </div>
+                    <div class="p-3 bg-purple-950/80 border border-purple-800/50 text-purple-400 rounded-lg">
+                        <i class="fa-solid fa-wallet text-xl"></i>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-6 rounded-xl shadow-lg border border-purple-900/40 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Pesanan Baru</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mt-1">128 Pesanan</h3>
+                        <span class="text-xs text-emerald-400 font-semibold">+8% hari ini</span>
+                    </div>
+                    <div class="p-3 bg-indigo-950/80 border border-indigo-800/50 text-indigo-400 rounded-lg">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-6 rounded-xl shadow-lg border border-purple-900/40 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Pelanggan Aktif</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mt-1">1.420 Orang</h3>
+                        <span class="text-xs text-emerald-400 font-semibold">+5% pengguna baru</span>
+                    </div>
+                    <div class="p-3 bg-emerald-950/80 border border-emerald-800/50 text-emerald-400 rounded-lg">
+                        <i class="fa-solid fa-user-check text-xl"></i>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-6 rounded-xl shadow-lg border border-purple-900/40 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Stok Produk Rendah</p>
+                        <h3 class="text-2xl font-bold text-slate-100 mt-1">5 Produk</h3>
+                        <span class="text-xs text-rose-400 font-semibold">Perlu diisi ulang</span>
+                    </div>
+                    <div class="p-3 bg-rose-950/80 border border-rose-800/50 text-rose-400 rounded-lg">
+                        <i class="fa-solid fa-box-open text-xl"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Penjelasan Detail Opsi Dashboard -->
+            <div class="bg-slate-900 rounded-xl shadow-lg border border-purple-900/40 p-6">
+                <h3 class="text-lg font-bold text-purple-200 mb-4 border-b border-purple-900/40 pb-2">Informasi Opsi Navigasi</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                    <div class="p-4 bg-purple-950/30 border border-purple-900/30 rounded-lg">
+                        <strong class="text-purple-400 block mb-1">1. Dashboard</strong>
+                        Tempat memantau gambaran umum bisnis seperti total pendapatan, jumlah pesanan, dan status stok.
+                    </div>
+                    <div class="p-4 bg-purple-950/30 border border-purple-900/30 rounded-lg">
+                        <strong class="text-purple-400 block mb-1">2. Analytical</strong>
+                        Berisi grafik analisis mendalam terkait tren penjualan, trafik pengunjung, dan perilaku pembeli.
+                    </div>
+                    <div class="p-4 bg-purple-950/30 border border-purple-900/30 rounded-lg">
+                        <strong class="text-purple-400 block mb-1">3. Pengguna</strong>
+                        Pengelolaan data pelanggan, akun pembeli, hak akses admin, dan aktivitas akun.
+                    </div>
+                    <div class="p-4 bg-purple-950/30 border border-purple-900/30 rounded-lg">
+                        <strong class="text-purple-400 block mb-1">4. Laporan</strong>
+                        Mengunduh dan melihat laporan keuangan, transaksi bulanan, serta riwayat pembayaran.
+                    </div>
+                    <div class="p-4 bg-purple-950/30 border border-purple-900/30 rounded-lg md:col-span-2">
+                        <strong class="text-purple-400 block mb-1">5. Pengaturan</strong>
+                        Kustomisasi profil toko, metode pembayaran, integrasi kurir pengiriman, dan keamanan sistem.
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

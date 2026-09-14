@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelajarTailwind.com</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Class helper untuk menyembunyikan konten yang tidak aktif */
+        .page-content {
+            display: none;
+        }
+        .page-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col h-screen">
+
+    <!-- HEADER UTAMA (DARK PURPLE HEADER) -->
+    <header class="bg-purple-950 border-b border-purple-900/50 text-white shadow-lg py-4 px-6 flex justify-between items-center z-10 shrink-0">
+        <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-store text-2xl text-purple-400"></i>
+            <h1 class="text-xl font-bold tracking-wide text-purple-100">BelajarTailwind.com</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="relative p-2 hover:bg-purple-900/60 rounded-full transition">
+                <i class="fa-regular fa-bell text-lg text-purple-300"></i>
+                <span class="absolute top-1 right-1 w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
+            </button>
+            <div class="flex items-center space-x-2 border-l border-purple-800/60 pl-4">
+                <img src="https://via.placeholder.com/35" alt="Avatar" class="w-8 h-8 rounded-full border border-purple-400">
+                <span class="text-sm font-medium text-purple-200">Admin Toko</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER UTAMA (SIDEBAR + CONTENT) -->
+    <div class="flex flex-1 overflow-hidden">
+
+        <!-- SIDEBAR (KIRI - UNGU GELAP) -->
+        <aside class="w-64 bg-slate-900 border-r border-purple-900/30 flex flex-col justify-between shrink-0">
+            <nav class="mt-6 px-4 space-y-2">
+                
+                <!-- Menu Dashboard -->
+                <button onclick="switchTab('dashboard', this)" class="nav-btn w-full flex items-center space-x-3 bg-purple-900/50 text-purple-300 border border-purple-700/50 font-semibold px-4 py-3 rounded-lg transition text-left shadow-sm">
+                    <i class="fa-solid fa-chart-line w-5 text-purple-400"></i>
+                    <span>Dashboard</span>
+                </button>
+
+                <!-- Menu Analytical -->
+                <button onclick="switchTab('analytical', this)" class="nav-btn w-full flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition text-left">
+                    <i class="fa-solid fa-chart-pie w-5"></i>
+                    <span>Analytical</span>
+                </button>
+
+                <!-- Menu Pengguna -->
+                <button onclick="switchTab('pengguna', this)" class="nav-btn w-full flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition text-left">
+                    <i class="fa-solid fa-users w-5"></i>
+                    <span>Pengguna</span>
+                </button>
+
+                <!-- Menu Laporan -->
+                <button onclick="switchTab('laporan', this)" class="nav-btn w-full flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition text-left">
+                    <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                    <span>Laporan</span>
+                </button>
+
+                <!-- Menu Pengaturan -->
+                <button onclick="switchTab('pengaturan', this)" class="nav-btn w-full flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition text-left">
+                    <i class="fa-solid fa-gear w-5"></i>
+                    <span>Pengaturan</span>
+                </button>
+
+            </nav>
+
+            <!-- Footer Sidebar / Keluar -->
+            <div class="p-4 border-t border-purple-900/30">
+                <button class="w-full flex items-center space-x-3 text-red-400 hover:bg-red-950/40 px-4 py-3 rounded-lg transition text-left">
+                    <i class="fa-solid fa-right-from-bracket w-5"></i>
+                    <span class="font-medium">Keluar</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- AREA KONTEN UTAMA (KANAN) -->
+        <main class="flex-1 overflow-y-auto p-8 bg-slate-950">
+
+            <!-- 1. KONTEN DASHBOARD -->
+            <div id="dashboard" class="page-content active">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-purple-100">Dashboard Utama</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Halaman ini menampilkan ringkasan performa toko, statistik penjualan harian, pesanan terbaru, serta indikator utama bisnis e-commerce kamu.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-purple-900/40 flex items-center justify-between shadow-lg shadow-purple-950/20">
+                        <div>
+                            <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Total Penjualan</p>
+                            <h3 class="text-2xl font-bold text-slate-100 mt-1">Rp 45.250.000</h3>
+                            <span class="text-xs text-emerald-400 font-semibold">+12.5% dari bulan lalu</span>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border border-purple-800/50 text-purple-400 rounded-lg">
+                            <i class="fa-solid fa-wallet text-xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-xl border border-purple-900/40 flex items-center justify-between shadow-lg shadow-purple-950/20">
+                        <div>
+                            <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Pesanan Baru</p>
+                            <h3 class="text-2xl font-bold text-slate-100 mt-1">128 Pesanan</h3>
+                            <span class="text-xs text-emerald-400 font-semibold">+8% hari ini</span>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border border-purple-800/50 text-purple-400 rounded-lg">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-xl border border-purple-900/40 flex items-center justify-between shadow-lg shadow-purple-950/20">
+                        <div>
+                            <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Pelanggan Aktif</p>
+                            <h3 class="text-2xl font-bold text-slate-100 mt-1">1.420 Orang</h3>
+                            <span class="text-xs text-emerald-400 font-semibold">+5% pengguna baru</span>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border border-purple-800/50 text-purple-400 rounded-lg">
+                            <i class="fa-solid fa-user-check text-xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-xl border border-purple-900/40 flex items-center justify-between shadow-lg shadow-purple-950/20">
+                        <div>
+                            <p class="text-xs text-purple-300/70 font-semibold uppercase tracking-wider">Stok Produk Rendah</p>
+                            <h3 class="text-2xl font-bold text-slate-100 mt-1">5 Produk</h3>
+                            <span class="text-xs text-rose-400 font-semibold">Perlu diisi ulang</span>
+                        </div>
+                        <div class="p-3 bg-rose-950/50 border border-rose-900/50 text-rose-400 rounded-lg">
+                            <i class="fa-solid fa-box-open text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6">
+                    <h3 class="text-lg font-bold text-purple-200 mb-2">Penjelasan Menu Dashboard</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Di menu <strong class="text-purple-400">Dashboard</strong>, kamu dapat memantau indikator kinerja utama (KPI) toko secara real-time. Bagian ini membantu pemilik toko mengidentifikasi stok yang mau habis dan tren statistik pesanan dengan cepat.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. KONTEN ANALYTICAL -->
+            <div id="analytical" class="page-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-purple-100">Analisis & Statistik (Analytical)</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Halaman ini menyajikan grafik dan data statistik mendalam mengenai grafik trafik pengunjung, produk terlaris, dan perilaku belanja pembeli.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6 mb-6">
+                    <h3 class="text-lg font-bold text-purple-200 mb-2">Penjelasan Menu Analytical</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Menu <strong class="text-purple-400">Analytical</strong> berguna untuk melihat tren statistik jangka panjang. Kamu bisa menganalisis demografi pembeli, jam-jam paling ramai pengunjung, serta produk mana saja yang memiliki konversi tertinggi.
+                    </p>
+                </div>
+
+                <div class="bg-purple-950/40 border border-purple-800/40 p-8 rounded-xl text-center">
+                    <i class="fa-solid fa-chart-column text-4xl text-purple-400 mb-3"></i>
+                    <p class="text-purple-200 font-medium">Area ini tempat ditempatkannya Grafik Visualisasi Data (Chart JS / Google Charts).</p>
+                </div>
+            </div>
+
+            <!-- 3. KONTEN PENGGUNA -->
+            <div id="pengguna" class="page-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-purple-100">Manajemen Pengguna</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Kelola seluruh akun pembeli terdaftar, staf admin toko, serta hak akses pengguna di sistem ini.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6 mb-6">
+                    <h3 class="text-lg font-bold text-purple-200 mb-2">Penjelasan Menu Pengguna</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Di menu <strong class="text-purple-400">Pengguna</strong>, kamu bisa melihat daftar akun pembeli yang sudah mendaftar, memblokir pengguna bermasalah, serta menambahkan staf/admin baru untuk membantu mengelola toko e-commerce.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6">
+                    <h4 class="font-bold text-purple-200 mb-3">Tabel Pengguna Terbaru (Contoh Tampilan)</h4>
+                    <div class="border border-purple-900/30 rounded-lg overflow-hidden">
+                        <table class="w-full text-left text-sm text-slate-300">
+                            <thead class="bg-purple-950/70 border-b border-purple-900/50 text-purple-200">
+                                <tr>
+                                    <th class="p-3">Nama</th>
+                                    <th class="p-3">Email</th>
+                                    <th class="p-3">Role</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-purple-900/30">
+                                    <td class="p-3">Budi Santoso</td>
+                                    <td class="p-3 text-slate-400">budi@example.com</td>
+                                    <td class="p-3">Pembeli</td>
+                                    <td class="p-3 text-emerald-400 font-semibold">Aktif</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Siti Aminah</td>
+                                    <td class="p-3 text-slate-400">siti@example.com</td>
+                                    <td class="p-3">Admin</td>
+                                    <td class="p-3 text-emerald-400 font-semibold">Aktif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. KONTEN LAPORAN -->
+            <div id="laporan" class="page-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-purple-100">Laporan Keuangan & Transaksi</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Akses dan unduh laporan rekapitulasi penjualan, laporan pajak, dan histori pembayaran secara berkala.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6 mb-6">
+                    <h3 class="text-lg font-bold text-purple-200 mb-2">Penjelasan Menu Laporan</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Menu <strong class="text-purple-400">Laporan</strong> memudahkanmu mengekspor data transaksi harian, mingguan, atau bulanan ke dalam format PDF/Excel untuk kebutuhan pembukuan toko.
+                    </p>
+                </div>
+
+                <div class="flex space-x-4">
+                    <button class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-purple-900/50">
+                        <i class="fa-solid fa-download mr-2"></i>Unduh Laporan PDF
+                    </button>
+                    <button class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-emerald-900/50">
+                        <i class="fa-solid fa-file-excel mr-2"></i>Ekspor ke Excel
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5. KONTEN PENGATURAN -->
+            <div id="pengaturan" class="page-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-purple-100">Pengaturan Sistem Toko</h2>
+                    <p class="text-slate-400 text-sm mt-1">
+                        Konfigurasi identitas toko, metode pembayaran (E-Wallet/Bank), serta opsi integrasi pengiriman/kurir.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6 mb-6">
+                    <h3 class="text-lg font-bold text-purple-200 mb-2">Penjelasan Menu Pengaturan</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Menu <strong class="text-purple-400">Pengaturan</strong> menyajikan opsi kustomisasi seperti mengubah nama toko, memasang logo baru, mengaktifkan gerbang pembayaran (payment gateway), dan mengatur alamat asal pengiriman paket.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl border border-purple-900/40 p-6 max-w-lg">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Nama Toko Online</label>
+                            <input type="text" value="Toko Serba Ada E-Commerce" class="w-full bg-slate-950 border border-purple-900/50 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Email Kontak Toko</label>
+                            <input type="email" value="support@tokoserbaada.com" class="w-full bg-slate-950 border border-purple-900/50 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500">
+                        </div>
+                        <button class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-purple-950">Simpan Perubahan</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT UNTUK PINDAH TAB KETIKA MENU DIKLIK -->
+    <script>
+        function switchTab(tabId, element) {
+            // 1. Sembunyikan semua section konten
+            const contents = document.querySelectorAll('.page-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 2. Tampilkan section konten yang dipilih
+            document.getElementById(tabId).classList.add('active');
+
+            // 3. Reset warna tombol navigasi ke gaya Dark Theme
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.className = "nav-btn w-full flex items-center space-x-3 text-slate-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 py-3 rounded-lg transition text-left";
+            });
+
+            // 4. Ubah warna tombol yang sedang diklik/aktif ke Aksen Ungu Gelap Terang
+            element.className = "nav-btn w-full flex items-center space-x-3 bg-purple-900/50 text-purple-300 border border-purple-700/50 font-semibold px-4 py-3 rounded-lg transition text-left shadow-sm";
+        }
+    </script>
+
+</body>
+</html>
